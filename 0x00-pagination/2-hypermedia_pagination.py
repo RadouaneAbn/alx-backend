@@ -55,6 +55,8 @@ class Server:
                 prev_page
                 total_pages
         """
+        assert (type(page) is int and type(page_size) is int)\
+            and (page > 0 and page_size > 0)
         data = self.get_page(page, page_size)
         current_page_size = len(data)
         next_page = None
