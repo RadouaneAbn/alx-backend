@@ -43,8 +43,6 @@ class Server:
             -> Dict[str, Union[List[List], int, None]]:
         """ This method returns a dictionary containing some data of a page
         """
-        if not self.__indexed_dataset:
-            return []
         index_dataset_len = len(self.__indexed_dataset)
         index_dataset_keys = sorted(self.__indexed_dataset.keys())
         assert all([index >= 0, index < index_dataset_len])
@@ -63,9 +61,3 @@ class Server:
             "page_size": page_size,
             "data": data
         }
-
-    def gett(self, n):
-        for i in range(n):
-            dd = self.__indexed_dataset.get(i, None)
-            if dd is not None:
-                print(f"{i}: {dd}")
