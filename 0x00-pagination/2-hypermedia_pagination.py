@@ -3,7 +3,7 @@
 
 
 import csv
-from math import ceil
+import math
 from typing import List, Dict, Union
 
 
@@ -64,7 +64,7 @@ class Server:
             next_page = page + 1
         if (page - 1) * page_size > 0:
             prev_page = page - 1
-        total_pages = ceil(self.__dataset_len / page_size)
+        total_pages = math.ceil(self.__dataset_len / page_size)
         return {
             "page_size": current_page_size,
             "page": page,
