@@ -4,7 +4,7 @@
 
 import csv
 from math import ceil
-from typing import List
+from typing import List, Dict, Union
 
 
 def index_range(page: int, page_size: int) -> tuple:
@@ -45,7 +45,8 @@ class Server:
         start, end = index_range(page, page_size)
         return self.__dataset[start: end]
 
-    def get_hyper(self, page: int = 1, page_size: int = 10) -> dict:
+    def get_hyper(self, page: int = 1, page_size: int = 10)\
+            -> Dict[str, Union[List[List], int, None]]:
         """ This method returns a dictionary conatining the following
             key-value pairs:
                 page_size
@@ -55,8 +56,6 @@ class Server:
                 prev_page
                 total_pages
         """
-        assert (type(page) is int and type(page_size) is int)\
-            and (page > 0 and page_size > 0)
         data = self.get_page(page, page_size)
         current_page_size = len(data)
         next_page = None
