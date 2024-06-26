@@ -4,6 +4,19 @@ BaseCaching = __import__("base_caching").BaseCaching
 
 
 class LIFOCache(BaseCaching):
+    """
+    LIFOCache class is a caching system that follows the Last In
+    First Out (LIFO) principle.
+
+    Attributes:
+        last_key (str): The key of the most recently added item in the cache.
+
+    Methods:
+        __init__(self): Initializes the LIFOCache instance.
+        put(self, key, item): Adds a key-value pair to the cache,
+            removing the most recently added item if necessary.
+        get(self, key): Retrieves a value from the cache by key.
+    """
     def __init__(self):
         """
         Initializes the LIFOCache instance.
