@@ -3,6 +3,7 @@
 
 BaseCaching = __import__("base_caching").BaseCaching
 
+
 class BasicCache(BaseCaching):
     """
     BasicCache class is a simple caching system that inherits from BaseCaching.
