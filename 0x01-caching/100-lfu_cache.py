@@ -1,9 +1,16 @@
 #!/usr/bin/env python3
-""" 100-lfu_cache.py """
+""" 100-lfu_cache Module """
 BaseCaching = __import__("base_caching").BaseCaching
 
 
 class LFUCache(BaseCaching):
+    """
+    LFUCache class that inherits from BaseCaching and implements a caching
+    system with Least Frequently Used (LFU) eviction policy.
+
+    Attributes:
+        item_dict (dict): Dictionary to store the frequency of each key.
+    """
     def __init__(self):
         """
         Initializes the MRUCache instance.
