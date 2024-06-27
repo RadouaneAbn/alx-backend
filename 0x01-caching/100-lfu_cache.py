@@ -14,8 +14,14 @@ class LFUCache(BaseCaching):
     @staticmethod
     def get_least_frequent(dict_lfu):
         """
-        Returns the key with the least frequency from the frequency dictionary.
-        """
+    Returns the key with the least frequency from the frequency dictionary.
+
+    Args:
+        dict_lfu: A dictionary with keys and their corresponding frequencies.
+
+    Returns:
+        The key with the smallest frequency.
+    """
         sorted_tuple = sorted(dict_lfu.items(),
                               key=lambda item: item[1])
         return sorted_tuple[0][0]
