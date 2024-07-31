@@ -32,18 +32,17 @@ def get_locale() -> str:
     locale = request.args.get("locale")
     if locale and locale in Config.LANGUAGES:
         return locale
-
     return request.accept_languages.best_match(Config.LANGUAGES)
 
 
-def get_user():
+def get_user() -> dict:
     """ This function return a user if found """
     user_id = request.args.get('login_as', type=int)
     return users.get(user_id, None)
 
 
 @app.before_request
-def before_request():
+def before_request() -> None:
     """ This function is executed before request to check if
     a user is logged in """
     g.user = get_user()
