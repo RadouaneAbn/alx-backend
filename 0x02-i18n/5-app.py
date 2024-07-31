@@ -2,9 +2,9 @@
 """ This module is flask app that serves one route '/' """
 from flask import Flask, render_template, request, g
 from flask_babel import Babel
-from typing import Any, List
+from typing import Any, List, Dict, Optional
 
-users = {
+users: Dict = {
     1: {"name": "Balou", "locale": "fr", "timezone": "Europe/Paris"},
     2: {"name": "Beyonce", "locale": "en", "timezone": "US/Central"},
     3: {"name": "Spock", "locale": "kg", "timezone": "Vulcan"},
@@ -40,7 +40,7 @@ def before_request() -> None:
 
 
 @babel.localeselector
-def get_locale() -> str:
+def get_locale() -> Optional[str]:
     """ Select the best match locale based on the Accept-Language header """
     locale = request.args.get("locale")
     if locale and locale in Config.LANGUAGES:
