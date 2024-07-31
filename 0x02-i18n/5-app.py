@@ -4,7 +4,7 @@ from flask import Flask, render_template, request, g
 from flask_babel import Babel
 from typing import Any, List, Dict, Optional
 
-users: Dict = {
+users: Dict[int, Dict[str, Optional[str]]] = {
     1: {"name": "Balou", "locale": "fr", "timezone": "Europe/Paris"},
     2: {"name": "Beyonce", "locale": "en", "timezone": "US/Central"},
     3: {"name": "Spock", "locale": "kg", "timezone": "Vulcan"},
