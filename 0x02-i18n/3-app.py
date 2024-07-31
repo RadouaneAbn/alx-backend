@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """ This module is flask app that serves one route '/' """
 from flask import Flask, render_template, request
-from flask_babel import Babel, gettext
+from flask_babel import Babel
 from typing import Any, List
 
 
@@ -29,7 +29,7 @@ def get_locale() -> str:
 @app.route("/", methods=["GET"])
 def root() -> Any:
     """ This is the root/home page """
-    return render_template("2-index.html")
+    return render_template("3-index.html")
 
 
 if __name__ == '__main__':
