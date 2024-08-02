@@ -30,16 +30,16 @@ babel: Babel = Babel(app)
 def get_locale() -> str:
     """ Select the best match locale based on the Accept-Language header """
     locale = request.args.get("locale")
-    if locale and locale in Config.LANGUAGES:
+    if locale and locale in app.config['LANGUAGES']:
         return locale
     if g.user:
         locale = g.user.get("locale")
         if locale and locale in app.config["LANGUAGES"]:
             return locale
-    locale = request.headers.get('locale', None)
+    locale = request.headers.get('locale', "")
     if locale in app.config['LANGUAGES']:
         return locale
-    return request.accept_languages.best_match(Config.LANGUAGES)
+    return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
 def get_user():
